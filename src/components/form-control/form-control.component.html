@@ -19,7 +19,7 @@
     *ngIf="formComponent?.control?.errors as errors"
   >
     <p
-      *ngFor="let e of getDescriptionErros()"
+      *ngFor="let e of getErrorDescriptions(errors)"
       class="error"> {{ e?.description() }}  </p>
   </div>
 </div>

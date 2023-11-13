@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, ViewChild, AfterViewInit, ElementRef, ContentChild, ContentChildren, QueryList } from '@angular/core';
-import { NgControl, NgModel, Validators } from '@angular/forms';
+import { NgControl, NgModel, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'snc-control',
   templateUrl: './form-control.component.html',
   styleUrls: ['./form-control.component.scss']
 })
-export class FormControlComponent  {
+export class FormControlComponent {
   @ContentChild(NgControl) formComponent!: NgControl;
   @Input() title?: string = '';
   @Input() tooltipMessage?: string = '';
@@ -15,7 +15,7 @@ export class FormControlComponent  {
     return this?.formComponent?.control;
   }
 
-  get required (): boolean | undefined {
+  get required(): boolean | undefined {
     return this.control?.hasValidator(Validators.required);
   }
 
@@ -41,12 +41,12 @@ export class FormControlComponent  {
     return message;
   }
 
-  getDescriptionErros(): Array<ErrorDescription> {
-    const errors = this?.formComponent?.control?.errors || {};
+  getErrorDescriptions(errors: ValidationErrors | null): Array<ErrorDescription> {
     let messages: Array<ErrorDescription> = [];
-    Object.entries(errors).forEach(e => {
-      messages.push(new ErrorDescription({ errorName: e[0], errorProps: e[1] }));
-    });
+    if (!!errors)
+      Object.entries(errors).forEach(e => {
+        messages.push(new ErrorDescription({ errorName: e[0], errorProps: e[1] }));
+      });
     return messages;
   }
 
@@ -61,9 +61,8 @@ class ErrorDescription {
 
   description = () => {
     let description: string = '';
-    const errorName = this.errorName;
     const props = this.errorProps;
-    switch (errorName.toLocaleLowerCase()) {
+    switch (this.errorName.toLocaleLowerCase()) {
       case 'required':
         description = 'Campo Obrigatório!';
         break;
