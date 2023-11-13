@@ -1,0 +1,29 @@
+.snc-button {
+    border-radius : 6px;
+    height        : 35px;
+    background    : #3b82f6;
+    color         : white;
+    font-size     : 1rem;
+    cursor        : pointer;
+    border        : none;
+    padding-inline: 10px;
+
+    &--primary {
+        @extend .snc-button;
+        background: #3b82f6;
+        color     : white;
+    }
+
+    &--secondary {
+        @extend .snc-button;
+        color     : #3b82f6;
+        background: white;
+        border    : 1px solid #3b82f6;
+    }
+
+    &:disabled {
+        background-color: #bdbebf;
+        color           : white;
+        cursor          : not-allowed;
+    }
+}

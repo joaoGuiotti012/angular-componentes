@@ -1,0 +1,15 @@
+<p-calendar
+  class="snc-calendario"
+  #pCalendar
+  [disabled]="disabled"
+  [(ngModel)]="valueDate"
+  (ngModelChange)="onNgModelChange($event)"
+  [readonlyInput]="readonlyInput"
+  [numberOfMonths]="numberOfMonths"
+  [selectionMode]="selectionMode"
+  [showButtonBar]="showButtonBar"
+  [showClear]="showClear"
+  [showIcon]="showIcon"
+  [showTime]="showTime"
+  [showOtherMonths]="showOtherMonths"
+></p-calendar>

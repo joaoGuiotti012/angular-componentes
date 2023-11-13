@@ -1,0 +1,75 @@
+<router-outlet></router-outlet>
+
+<form [formGroup]="form">
+  <snc-control title="Nome Cliente">
+    <snc-input formControlName="nomeCliente"></snc-input>
+  </snc-control>
+  <snc-control
+    title="Data"
+    tooltipMessage="Campo para range de data!"
+  >
+    <snc-calendar
+      formControlName="data"
+      [numberOfMonths]="3"
+      [selectionMode]="'range'"
+      [showIcon]="true"
+      [showButtonBar]="true"
+      [showClear]="true"
+      dateFormat="dd/mm/yy"
+    ></snc-calendar>
+  </snc-control>
+  <snc-control title="Valor">
+    <snc-input
+      formControlName="valor"
+      type="number"
+    ></snc-input>
+  </snc-control>
+  <snc-control title="Qtd Produto">
+    <snc-input
+      formControlName="qtdProduto"
+      type="number"
+    ></snc-input>
+  </snc-control>
+  <snc-control
+    title="Data"
+    tooltipMessage="Campo para range de data!"
+  >
+    <snc-calendar
+      [numberOfMonths]="3"
+      [selectionMode]="'range'"
+      [showIcon]="true"
+      [showButtonBar]="true"
+      [showClear]="true"
+    ></snc-calendar>
+  </snc-control>
+  <snc-control
+    title="Data"
+    tooltipMessage="Campo para range de data!"
+  >
+    <snc-calendar
+      [numberOfMonths]="3"
+      [selectionMode]="'range'"
+      [showIcon]="true"
+      [showButtonBar]="true"
+      [showClear]="true"
+    ></snc-calendar>
+  </snc-control>
+  <snc-control title="Valor">
+    <snc-input></snc-input>
+  </snc-control>
+  <div class="content-button">
+    <snc-button
+      type="primary"
+      [disabled]="form.invalid"
+      (click)="handleEnviarFormulario()"
+    >
+      Enviar
+    </snc-button>
+    <snc-button
+      type="secondary"
+      (click)="form.reset()"
+    >
+      Limpar
+    </snc-button>
+  </div>
+</form>

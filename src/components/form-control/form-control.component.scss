@@ -1,0 +1,66 @@
+::ng-deep .form-control {
+    display        : flex;
+    flex-direction : column;
+    justify-content: flex-start;
+    gap            : 6px;
+    max-width      : 100%;
+
+    &--header {
+        display        : flex;
+        flex-direction : row;
+        justify-content: space-between;
+
+        &__title {
+            b.text-required {
+                color: red;
+            }
+        }
+        &__tooltip {
+            &.pi.pi-ban {
+                color: red;
+            }
+        }
+    }
+
+
+    &.invalid {
+
+        // Invalid Calendario
+        .snc-calendario {
+            .p-button:focus {
+                box-shadow: none;
+            }
+
+            .p-inputtext {
+                border: none;
+            }
+
+            .p-inputtext:enabled:focus {
+                box-shadow: none;
+            }
+
+            .p-calendar {
+                border       : red 1px solid;
+                border-radius: 8px;
+            }
+        }
+
+        // Invalid Input 
+        .snc-input {
+            outline: red 1px solid;
+        }
+
+        // Error Messages
+        .error-messages {
+            p.error {
+                position  : absolute;
+                margin    : 0;
+                padding   : 0;
+                font-size : 12px;
+                color     : red;
+                margin-top: -5px;
+            }
+        }
+    }
+
+}

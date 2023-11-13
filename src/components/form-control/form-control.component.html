@@ -1,0 +1,25 @@
+<div
+  class="form-control"
+  [class.disabled]="control?.disabled"
+  [class.invalid]="control?.invalid"
+>
+  <div class="form-control--header">
+    <span class="form-control--header__title">
+      {{title}} 
+      <b class="text-required">{{ required ? '*' : '' }}</b> 
+    </span>
+    <i
+      *ngIf="showTooltip"
+      class="form-control--header__tooltip {{ iconTooltip }}"
+      [pTooltip]="messageTooltip"></i>
+  </div>
+  <ng-content></ng-content>
+  <div
+    class="error-messages"
+    *ngIf="formComponent?.control?.errors as errors"
+  >
+    <p
+      *ngFor="let e of getDescriptionErros()"
+      class="error"> {{ e?.description() }}  </p>
+  </div>
+</div>

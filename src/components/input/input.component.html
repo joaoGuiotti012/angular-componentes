@@ -1,0 +1,9 @@
+<input
+  class="snc-input"
+  [type]="type"
+  [(ngModel)]="inputValue"
+  [disabled]="disabled"
+  [readonly]="readonly"
+  (click)="onClick($event)"
+  (ngModelChange)="onChangeInputValue($event)"
+>

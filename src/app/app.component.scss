@@ -1,0 +1,22 @@
+ form {
+     display        : flex;
+     gap            : 12px;
+     justify-content: flex-start;
+     align-items    : flex-start;
+     flex-wrap      : wrap;
+
+     &>* {
+         flex-grow: 1;
+     }
+ }
+
+ .content-button {
+     display        : flex;
+     justify-content: flex-start;
+     align-items    : center;
+     gap            : 12px;
+     height         : auto;
+     width          : auto;
+     height         : 83px;
+     width          : 100%;
+ }

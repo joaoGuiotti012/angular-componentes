@@ -1,0 +1,9 @@
+<button
+  class="snc-button--{{type}}"
+  [type]="buttonType"
+  [hidden]="hidden"
+  [disabled]="disabled"
+  (click)="handleClick($event)"
+>
+  <ng-content></ng-content>
+</button>
