@@ -25,7 +25,7 @@ export class FormControlComponent {
 
   get iconTooltip() {
     let icon = 'pi ';
-    if (this?.formComponent?.disabled)
+    if (this?.control?.disabled)
       icon += 'pi-ban';
     else
       if (this.tooltipMessage) icon += 'pi-exclamation-circle';
